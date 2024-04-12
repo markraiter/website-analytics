@@ -2,8 +2,6 @@ version: "3"
 
 tasks:
   run:
-    env:
-      DB_HOST: localhost
     cmds:
       - go run main.go day1.csv day2.csv
 
