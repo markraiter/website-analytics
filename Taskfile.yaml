@@ -5,7 +5,7 @@ tasks:
     env:
       DB_HOST: localhost
     cmds:
-      - go run cmd/main.go
+      - go run main.go day1.csv day2.csv
 
   test:
     cmds:

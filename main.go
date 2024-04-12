@@ -9,13 +9,20 @@ import (
 )
 
 func main() {
+	// Check if the correct number of arguments are passed
+	if len(os.Args) != 3 {
+		fmt.Println("Usage: ./main day1.csv day2.csv")
+		os.Exit(1)
+	}
+
 	// Initialize logger
 	log := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{Level: slog.LevelDebug}))
+
 	// Load data from the first day into a map where the key is the user ID and the value is a set of visited product IDs
-	firstDayData := loadData(log, "day1.csv")
+	firstDayData := loadData(log, os.Args[1])
 
 	// Load data from the second day and find users who visited new pages
-	findNewPagesVisited(log, "day2.csv", firstDayData)
+	findNewPagesVisited(log, os.Args[2], firstDayData)
 }
 
 // loadData loads data from a CSV file and returns a map where the key is the user ID and the value is a set of visited product IDs
